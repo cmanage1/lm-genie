@@ -1,0 +1,114 @@
+[
+    {
+            "name": "Dalhousie University"  ,
+            "province": "novascotia",
+            "gpa": "3.7",
+            "lsat": "160",
+            "tuition": "17103.98"
+        },
+        {
+            "name": "Lakehead University",
+            "province": "ontario",
+            "gpa": "0", 
+            "lsat": "0",
+            "tuition": "19621.55"
+        },
+        {
+            "name": "McGill University",
+            "province": "quebec",
+            "gpa": "3.7",
+            "lsat": "161",
+            "tuition": "9464.16"
+        },
+        {
+            "name": "Queen's University",
+            "province": "ontario",
+            "gpa": "3.73",
+            "lsat": "162",
+            "tuition": "21480.34"
+        },
+        {
+            "name": "Thompson Rivers University",
+            "province": "britishcolumbia",
+            "gpa": "0",
+            "lsat": "0",
+            "tuition": "20943.17"
+        },
+        {
+            "name": "Univeristy of British Columbia",
+            "province": "britishcolumbia",
+            "gpa": "3.7",
+            "lsat": "166",
+            "tuition": "12639.36"
+        },
+        {
+            "name": "University of Calgary",
+            "province": "alberta",
+            "gpa": "3.6",
+            "lsat": "161",
+            "tuition": "12314.88"
+        },
+        {
+            "name": "University of Manitoba",
+            "province": "manitoba",
+            "gpa": "3.92",
+            "lsat": "161",
+            "tuition": "11,968.00"
+        },
+        {
+            "name": "University of New Brunswick",
+            "province": "newbrunswick",
+            "gpa": "3.7",
+            "lsat": "158",
+            "tuition": "11749.00"
+        },
+        {
+            "name": "University of Ottawa",
+            "province": "ontario",
+            "gpa": "3.6",
+            "lsat": "0",
+            "tuition": "10691.67"
+        },
+        {
+            "name": "University of Saskatchewan",
+            "province": "saskatchewan",
+            "gpa": "3.36",
+            "lsat": "158",
+            "tuition": "13822.00"
+        },
+        {
+            "name": "University of Toronto",
+            "province": "ontario",
+            "gpa": "3.87",
+            "lsat": "166",
+            "tuition": "36720.00"
+        },
+        {
+            "name": "University of Victoria",
+            "province": "britishcolumbia",
+            "gpa": "3.85",
+            "lsat": "165",
+            "tuition": "9,772.92"
+        },
+        {
+            "name": "University of Western Ontario",
+            "province": "ontario",
+            "gpa": "3.7",
+            "lsat": "162",
+            "tuition": "22390.00"
+        },
+        {
+            "name": "University of Windsor",
+            "province": "ontario",
+            "gpa": "3.12",
+            "lsat": "155",
+            "tuition": "21182.72"
+        },
+        {
+            "name": "York University",
+            "province": "ontario",
+            "gpa": "3.69",
+            "lsat": "161",
+            "tuition": "27558.08"
+    }  
+]

@@ -1,51 +1,8 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React,{useState, useEffect} from 'react';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-
-const provinces = [
-    {
-        value: 'any',
-        label: 'Any',
-    },
-    {
-        value: 'alberta',
-        label: "Alberta",
-    },
-    {
-        value: "britishcolumbia",
-        label: "British Columbia",
-    },
-    {
-        value: "newbrunswick",
-        label: "New Brunswick",
-    },
-    {
-        value: "newfoundlandandlabrador",
-        label: "Newfoundland and Labrador",
-    },
-    {
-        value: "novascotia",
-        label: "Nova Scotia",
-    },
-    {
-        value: "princeedwardisland",
-        label: "Prince Edward Island",
-    },
-    {
-        value: "ontario",
-        label: "Ontario",
-    },
-    {
-        value: "quebec",
-        label: "Quebec",
-    },
-    {
-        value: "saskatchewan",
-        label: "Saskatchewan",
-    }
-];
-
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -56,49 +13,100 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+function Lsat(){
     
-function Lsat() {
     const classes = useStyles();
-    const [province, setProvince] = React.useState('Any');
-
-    const handleChange = (event) => {
-        setProvince(event.target.value);
+    const [state, setState] = useState({
+        userGPA: '',
+        userLSAT: '',
+        userTuitionBudget: ''
+    })
+    const [userProvince, setUserProvince] = useState('any');
+    const [results, setResults] = useState(0);
+    
+    function handleChange(event){
+        const value = event.target.value;
+        setState( { 
+            ...state,
+            [event.target.id] : value 
+        });
     };
 
+    const handleProvinceChange = (event) =>{ 
+        setUserProvince(event.target.value)
+    }
+
+    function handleSubmit(event){ 
+        console.log("Submitted" );
+    }
+
+    useEffect(() => {
+        fetch('/lsat_calc').then(res => res.json()).then(data => {
+            console.log(data)
+            setResults(data.time); 
+        })
+    }, []);
+
     return(
-        <form className={classes.root} noValidate autoComplete="off">
+        <form 
+            className={classes.root} 
+            noValidate 
+            autoComplete="off"
+            onSubmit={ handleSubmit } >
+            <h2>
+                Please complete the form below and click submit
+            </h2>
             <div>
                 <TextField
-                    id="userLsatForm"
                     select
-                    label="Select"
-                    value={province}
-                    onChange={handleChange}
-                    helperText="Preferred province"
+                    id="userProvince"
+                    value={  userProvince }
+                    onChange={ handleProvinceChange }
+                    helperText="Select your preferred province"
+                    variant="outlined"
                 >
-                {provinces.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                    </MenuItem>
-                ))}
+                    <MenuItem value={'any'}>Any</MenuItem>
+                    <MenuItem value={'alberta'}>Alberta </MenuItem>
+                    <MenuItem value={'britishcolumbia'}>British Columbia</MenuItem>
+                    <MenuItem value={'newbrunswick'}>New Brunswick</MenuItem>
+                    <MenuItem value={'newfoundlandandlabrador'}>Newfoundland and Labrador</MenuItem>
+                    <MenuItem value={'novascotia'}>Nova Scotia</MenuItem>
+                    <MenuItem value={'princeedwardisland'}>Prince Edward Island</MenuItem>
+                    <MenuItem value={'ontario'}>Ontario</MenuItem>
+                    <MenuItem value={'quebec'}>Quebec</MenuItem>
+                    <MenuItem value={'saskatchewan'}>Saskatchewan</MenuItem>
                 </TextField>
-
+            </div>
+            <div>
                 <TextField
                     id="userGPA"
-                    label= "Anticipated GPA">
+                    helperText="Anticipated GPA"
+                    onChange={handleChange}>
+                </TextField>
+
+                <TextField
+                    id="userLSAT"
+                    helperText="Anticipated LSAT Score"
+                    onChange={handleChange}>
+                </TextField>
+
+                <TextField
+                    id="userTuitionBudget"
+                    helperText= "Tution Budget"
+                    onChange={handleChange}>
                 </TextField>
             </div>
             <div>
-                <TextField
-                    id="lsatScore"
-                    label="Anticipated LSAT Score">
-                </TextField>
-                <TextField
-                    id="tuitionBudget"
-                    label= "Tution Budget">
-                </TextField>
+                <p className="disclaimer"> <b className="disclaimerHeader"> Disclaimer! </b><br />
+                We take into the account the <b>minimum</b> MCAT score and GPA
+                required for each school. You can look at
+                our database <a href="https://github.com/cmanage1/SchoolFinder/blob/master/server/lawSchoolsDB.json">here </a>
+                to see where you stand.
+                </p>
             </div>
-
+            <Button type="submit" value="Submit"> Submit
+            </Button>
+            <h3> The time right now is : { results }</h3>
         </form>
     )
 }

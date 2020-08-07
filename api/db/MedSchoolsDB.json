@@ -1,0 +1,105 @@
+[
+    {
+            "name": "Dalhousie University"  ,
+            "province": "novascotia",
+            "gpa": "3.7",
+            "mcat": "503",
+            "tuition": "19215",
+            "Notes": "Requirenments are different for Maritime students"
+        },
+        {
+            "name": "McGill University",
+            "province": "quebec",
+            "gpa": "3.8",
+            "mcat": "0",
+            "tuition": "7058.92",
+            "Notes": "no mcat information found and tuition is different for students who live outside of quebec"
+        },
+        {
+            "name": "McMaster University",
+            "province": "Ontario",
+            "gpa": "3",
+            "mcat": "0",
+            "tuition": "27001.57",
+            "notes": "no mcat information found"
+        },
+        {
+            "name": "Memorial University of Newfoundland",
+            "province": "Newfoundland",
+            "gpa": "3.7",
+            "mcat": "0",
+            "tuition": "6250",
+            "notes": "no mcat information found"
+
+        },
+        {
+            "name": "Northern Ontario School of Medicine",
+            "province": "Ontario",
+            "gpa": "3.83",
+            "mcat": "0",
+            "tuition": "22317",
+            "notes": "no mcat information needed"
+        },
+        {
+            "name": "Queen's University",
+            "province": "Ontario",
+            "gpa": "0",
+            "mcat": "0",
+            "tuition": "26182.72",
+            "notes": "no gpa or mcat information found"
+        },
+        {
+            "name": "University of Calgary",
+            "province": "alberta",
+            "gpa": "3.2",
+            "mcat": "0",
+            "tuition": "15012.18",
+            "notes": "no mcat information found and gpa is different for those from outside of Alberta"
+        },
+        {
+            "name": "University of Manitoba",
+            "province": "manitoba",
+            "gpa": "3.3",
+            "mcat": "0",
+            "tuition": "8700",
+            "notes": "no mcat information found"
+        },
+        {
+            "name": "University of Ottawa",
+            "province": "ontario",
+            "gpa": "0",
+            "mcat": "0",
+            "tuition": "24452.76",
+            "notes": "no gpa information found, no mcat information needed"
+        },
+        {
+            "name": "University of Saskatchewan",
+            "province": "saskatchewan",
+            "gpa": "2.3",
+            "mcat": "506",
+            "tuition": "16236"
+        },
+        {
+            "name": "University of Toronto",
+            "province": "ontario",
+            "gpa": "3.8",
+            "mcat": "125",
+            "tuition": "25061.40",
+            "notes": "for mcat a 125 is required for each part"
+        },
+        {
+            "name": "University of British Colombia",
+            "province": "britishcolumbia",
+            "gpa": "2.0",
+            "mcat": "124",
+            "tuition": "17407.24",
+            "notes": "for mcat a 124 is required for each part"
+        },
+        {
+            "name": "University of Western Ontario",
+            "province": "ontario",
+            "gpa": "3.7",
+            "mcat": "384",
+            "tuition": "25209.74"
+    }
+]

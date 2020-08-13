@@ -1,7 +1,9 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -16,14 +18,16 @@ const useStyles = makeStyles((theme) => ({
 function Lsat(){
     
     const classes = useStyles();
+    const [userProvince, setUserProvince] = useState('any');
+    const [checked, setChecked] = useState(false);
+    const [results, setResults] = useState([]);
+    const isHidden = checked === false;
     const [state, setState] = useState({
         userGPA: '',
         userLSAT: '',
         userTuitionBudget: ''
     })
-    const [userProvince, setUserProvince] = useState('any');
-    const [results, setResults] = useState(0);
-    
+
     function handleChange(event){
         const value = event.target.value;
         setState( { 
@@ -36,16 +40,44 @@ function Lsat(){
         setUserProvince(event.target.value)
     }
 
-    function handleSubmit(event){ 
-        console.log("Submitted" );
+    const handleCheckChange = (event) => {
+        setChecked(event.target.checked);
     }
 
-    useEffect(() => {
-        fetch('/lsat_calc').then(res => res.json()).then(data => {
-            console.log(data)
-            setResults(data.time); 
-        })
-    }, []);
+    function handleSubmit(event){ 
+        
+        var gpa = state.userGPA;
+        var lsatScore = state.userLSAT;
+        var tuitionBudget = state.userTuitionBudget;
+        var data = {
+            userProvince, 
+            gpa , 
+            lsatScore , 
+            tuitionBudget ,
+        }
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            body: JSON.stringify(data)
+        };
+
+        event.preventDefault();
+        console.log("Submitted");
+
+        fetch('/lsat_calc', options)
+            .then(res => res.json())
+            .then( (data) => {
+                console.log(data)
+                setResults(data)
+                
+            }).catch( e => {
+                console.error(e);
+            });
+    }
 
     return(
         <form 
@@ -89,12 +121,26 @@ function Lsat(){
                     helperText="Anticipated LSAT Score"
                     onChange={handleChange}>
                 </TextField>
-
+            </div>
+            <div>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            checked={checked}
+                            onChange={handleCheckChange}
+                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                        />
+                    }
+                    label="Include Tuition Budget"
+                />
+            </div>
+            <div hidden>
                 <TextField
                     id="userTuitionBudget"
-                    helperText= "Tution Budget"
-                    onChange={handleChange}>
-                </TextField>
+                    helperText="Tution Budget"
+                    onChange={handleChange}
+                    disabled={isHidden} >
+                </TextField> 
             </div>
             <div>
                 <p className="disclaimer"> <b className="disclaimerHeader"> Disclaimer! </b><br />
@@ -106,7 +152,6 @@ function Lsat(){
             </div>
             <Button type="submit" value="Submit"> Submit
             </Button>
-            <h3> The time right now is : { results }</h3>
         </form>
     )
 }

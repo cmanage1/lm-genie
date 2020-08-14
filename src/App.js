@@ -7,7 +7,6 @@ import {
 import Lsat from './components/Lsat/Lsat'
 import Mcat from './components/Mcat/Mcat'
 import Landing from './components/Landing/Landing'
-import Privacy from './components/Privacy/Privacy'
 import About from './components/About/About'
 import Nav from './components/Nav'
 import Footer from './components/Footer';
@@ -21,7 +20,6 @@ import Footer from './components/Footer';
          <Route path="/lsat" component={Lsat} />
          <Route path="/mcat" component={Mcat} />
          <Route path="/about" component={About} />
-         <Route path="/privacy" component={Privacy} />
      </div>
      <Footer/>
    </Router>

@@ -22,10 +22,6 @@ const Nav = () => (
             <Link className="nav-link" to="/about">
                 <Button> About </Button>
             </Link>
-
-            <Link className="nav-link" to="/privacy">
-                <Button> Privacy</Button>
-            </Link>
         </ul>
     </nav>
 );

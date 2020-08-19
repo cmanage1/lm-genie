@@ -1,3 +1,11 @@
+# LM Genie 🧞
+An application that matches a user with a LAW/MED School
+
+## Built with
+* React.js
+* Python/Flask
+* Material UI
+
 ## Available Scripts
 
 In the project directory, you can run:

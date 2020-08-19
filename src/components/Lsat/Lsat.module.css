@@ -1,0 +1,16 @@
+.form{
+    padding: 2rem 0 0 2rem;
+}
+
+.selection{
+    width: 35ch;
+    padding-top: 1rem;
+}
+
+.results{
+    padding: 0.5rem 0 0 2rem;
+}
+
+.textFields{
+    width: 25ch;
+}

@@ -1,6 +1,11 @@
 # LM Genie 🧞
 An application that matches a user with a LAW/MED School
 
+
+## Demo
+
+![User Searches](https://github.com/cmanage1/lm-genie/blob/master/test_gifs/demo.gif)
+
 ## Built with
 * React.js
 * Python/Flask
